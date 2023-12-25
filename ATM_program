@@ -1,0 +1,50 @@
+class atm:
+    def __init__(self):
+        self.__pin=""
+        self.__balance = 0.00
+        self.__main()
+    def __main(self):
+        user= int(input("""******WELCOME TO SBI ATM SERVICE*******
+                       SELECT ANY ONE BELOW 
+                       1. CREATE PIN
+                       2. DEPOSIT CASH
+                       3. WITHDRAW CASH
+                       4. CHECK BALANCE
+                       5. EXIT
+        """))
+        if user == 1:
+            self.createpin()
+        elif user == 2:
+            self.deposit()
+        elif user == 3:
+            self.withdraw()
+        elif user == 4:
+            self.check_bal()
+        else:
+           print("THANK YOU FOR USING ATM SERVICES! VISIT AGAIN") 
+    def createpin(self):
+            self.__pin = input('Enter your new pin :')
+            print('Pin set succesfully!')
+    def deposit(self):
+        temp = input("Enter your Pin :")
+        if temp==self.__pin:
+            am=int(input("Enter your amount :"))
+            self.__balance = self.__balance+am
+            print("Deposit successfull")
+        else:
+            print("Invalid pin!")
+    def withdraw(self):
+        pin_en = input("Enter your Pin :")
+        if pin_en == self.__pin:
+            amount = eval(input("Enter your amount in Rs : "))
+            self.__balance= self.__balance - amount
+            print("Withdraw success!")
+        else:
+            print("Invalid pin!")
+    def check_bal(self):
+        pin_e = input("Enter your pin : ")
+        if pin_e == self.__pin:
+            print(self.__balance)
+        else:
+            print("invalid pin!")
+    
